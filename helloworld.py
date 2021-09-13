@@ -1,0 +1,30 @@
+import random
+reponse = None
+interval = None
+a = None
+b = None
+reboot = True
+reponse_reboot = None
+print("Devinez le chiffre entre a et b!")
+a = int(input("définisser la valeur de a : \n"))
+b = int(input("définisser la valeur de b : \n"))
+nombre_a_deviner = random.randint(a, b)
+while reponse != nombre_a_deviner or reboot:
+	reponse = int(input("Quelle est votre réponse ?\n"))
+	if reponse > nombre_a_deviner:
+		print("Ce n'est pas ça. Le nombre est plus petit")
+	elif reponse < nombre_a_deviner:
+		print("Ce n'est pas ça. Le nombre est plus grand")
+	else:
+		print("Bonne réponse ")
+		reponse_reboot = input("Souhaitez vous recommencer ? Y ou N\n")
+		if reponse_reboot == "Y":
+			reboot = True
+			interval = input("Souhaitez vous modifier l'inverval ? Y ou N\n")
+			if interval == "Y":
+				a = int(input("définisser la valeur de a : \n"))
+				b = int(input("définisser la valeur de b : \n"))
+			nombre_a_deviner = random.randint(a, b)
+		else:
+			reboot = False
+print("Merci d'avoir joué")
